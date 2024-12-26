@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15*15*15 Rule</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="sidebar">
+        <a href="expense-tracker.html">Expense Tracker</a>
+        <a href="fire-number.html">FIRE Number</a>
+        <a href="investment-planning.html">Investment Planning</a>
+        <a href="car-ownership.html">Car Ownership</a>
+        <a href="tax-saving.html">Tax Savings</a>
+        <a href="insurance-planning.html">Insurance Planning</a>
+        <a href="Cost-Benefit Analysis.html">Cost-Benefit Analysis</a>
+        <a href=" Rate Management for Home Loans.html">Rate Management for Home Loans</a>
+        <a href ="Emergency Goals .html">Emergency Goals</a>
+        <a href ="Home Loan Strategies.html">Home Loan Strategies</a>
+        <a href="dd.html">28/36 Rule Breakdown</a>
+        <a href="Credit Card Management.html">Credit Card Management</a>
+        <a href="Sukanya Samriddhi Yojana.html">Sukanya Samriddhi Yojana</a>
+        
+    </div>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #ff942f;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: hsl(327, 100%, 96%);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #444;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #5cb85c;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4cae4c;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        #projection-result {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>15*15*15 Rule</h1>
+
+        <section id="wealth-building">
+            <h2>Wealth-Building Strategies</h2>
+            <p>Explore how investments grow over time using the 15x15x15 rule:</p>
+            <label for="monthly-investment">Monthly Investment (₹):</label>
+            <input type="number" id="monthly-investment" value="15000" min="0">
+
+            <label for="annual-return">Annual Return Rate (%):</label>
+            <input type="number" id="annual-return" value="15" step="0.1" min="0">
+
+            <label for="investment-years">Investment Duration (Years):</label>
+            <input type="number" id="investment-years" value="15" min="0">
+
+            <button onclick="calculateProjection()">Calculate</button>
+
+            <p id="projection-result"></p>
+        </section>
+
+    <script>
+        function calculateProjection() {
+            const monthlyInvestment = parseFloat(document.getElementById('monthly-investment').value);
+            const annualReturn = parseFloat(document.getElementById('annual-return').value) / 100;
+            const years = parseInt(document.getElementById('investment-years').value);
+
+            const monthlyReturn = annualReturn / 12;
+            const months = years * 12;
+
+            let futureValue = 0;
+            for (let i = 0; i < months; i++) {
+                futureValue = (futureValue + monthlyInvestment) * (1 + monthlyReturn);
+            }
+
+            document.getElementById('projection-result').innerText = `Projected Value: ₹${futureValue.toFixed(2)}`;
+        }
+
+        function showTaxSavingsAlert() {
+            alert('Explore tax-saving investments under Sections 80C, 80CCD(1B), and more!');
+        }
+    </script>
+</body>
+</html>

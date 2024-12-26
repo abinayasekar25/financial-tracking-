@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRE Number</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="sidebar">
+        <a href="expense-tracker.html">Expense Tracker</a>
+        <a href="fire-number.html">FIRE Number</a>
+        <a href="investment-planning.html">Investment Planning</a>
+        <a href="car-ownership.html">Car Ownership</a>
+        <a href="tax-saving.html">Tax Savings</a>
+        <a href="insurance-planning.html">Insurance Planning</a>
+        <a href="Cost-Benefit Analysis.html">Cost-Benefit Analysis</a>
+        <a href=" Rate Management for Home Loans.html">Rate Management for Home Loans</a>
+        <a href ="Emergency Goals .html">Emergency Goals</a>
+        <a href ="Home Loan Strategies.html">Home Loan Strategies</a>
+        <a href="dd.html">28/36 Rule Breakdown</a>
+        <a href="Credit Card Management.html">Credit Card Management</a>
+        <a href="Sukanya Samriddhi Yojana.html">Sukanya Samriddhi Yojana</a>
+
+    </div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRE Number Calculator</title>
+</head>
+<body>
+    <div id="content">
+        <section id="fire-number">
+            <h1>FIRE Number Calculation</h1>
+            <p>Calculate your Financial Independence Retire Early (FIRE) Number.</p>
+            <input type="number" id="annual-expense" placeholder="Enter annual expenses">
+            <button onclick="calculateFIRE()">Calculate FIRE Number</button>
+            <p>Your FIRE Number is: ₹<span id="fire-result">0</span></p>
+        </section>
+    </div>
+    <script>
+        function calculateFIRE() {
+            const annualExpenseInput = document.getElementById("annual-expense").value;
+            const annualExpense = parseFloat(annualExpenseInput);
+
+            if (isNaN(annualExpense) || annualExpense <= 0) {
+                alert("Please enter a valid annual expense greater than zero.");
+                return;
+            }
+
+            const fireNumber = annualExpense * 25;
+            document.getElementById("fire-result").textContent = fireNumber.toLocaleString('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                minimumFractionDigits: 2,
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+     
+    <div id="sidebar">
+        <a href="expense-tracker.html">Expense Tracker</a>
+        <a href="fire-number.html">FIRE Number</a>
+        <a href="investment-planning.html">Investment Planning</a>
+        <a href="car-ownership.html">Car Ownership</a>
+        <a href="tax-saving.html">Tax Savings</a>
+        <a href="insurance-planning.html">Insurance Planning</a>
+        <a href="Cost-Benefit Analysis.html">Cost-Benefit Analysis</a>
+        <a href=" Rate Management for Home Loans.html">Rate Management for Home Loans</a>
+        <a href ="Emergency Goals .html">Emergency Goals</a>
+        <a href ="Home Loan Strategies.html">Home Loan Strategies</a>
+        <a href="dd.html">28/36 Rule Breakdown</a>
+        <a href="Credit Card Management.html">Credit Card Management</a>
+        <a href="Sukanya Samriddhi Yojana.html">Sukanya Samriddhi Yojana</a>
+    </div>
+
+    <div id="content">
+        <section id="expense-tracker">
+            <h1>Expense Tracker</h1>
+            <section class="salary-section">
+                <input type="number" id="monthly-salary" placeholder="Enter your monthly salary">
+                <button id="update-salary-btn">Update Salary</button>
+            </section>
+            <section id="budget-display">
+                <h3>50/30/20 Rule Allocation</h3>
+                <p>Needs: ₹<span id="needs-amount">0</span></p>
+                <p>Wants: ₹<span id="wants-amount">0</span></p>
+                <p>Savings: ₹<span id="savings-amount">0</span></p>
+            </section>
+        </section>
+
+        <div id="piechart-container">
+          <canvas id="myPieChart"></canvas>
+      </div>
+      
+
+        <form id="expense-form">
+            <div>
+              <label for="product" style="font-weight: bold;">Product:</label>
+              <input type="text" id="product" placeholder="Enter product name">
+            </div>
+            <div>
+              <label for="price" style="font-weight: bold;">Price:</label>
+              <input type="number" id="price" placeholder="Enter price">
+            </div>
+
+            <div>
+                <label for="date" style="font-weight: bold;">Date of Purchase:</label>
+                <input type="date" id="date">
+              </div>
+              <label for="categories">Category:</label>
+              <select id="categories" name="categories" required aria-placeholder="Select a Category">
+                  <option value="">Select a category</option>
+                  <option value="electronics">Electronics</option>
+                  <option value="clothing">Clothing</option>
+                  <option value="groceries">Groceries</option>
+                  <option value="accessories">Accessories</option>
+                  <option value="Cosmetics">Cosmetic</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Transport">Transport</option>
+                  <option value="Interest">Interest</option>
+                  <option value="Rent">Rent</option>
+                  <option value="School fees">School fees</option>
+                  <option value="Medical">Medical</option>
+                  <option value="EB bill">EB Bill</option>
+                  <option value="Foods&Drinks">Foods&Drinks</option>
+                  <option value="Stationary">Stationary</option>
+                  <option value="Festival">Festival</option>
+                  <option value="Gym&Sports">Gym&Sports</option>
+                  <option value="Gas bill">Gas Bill</option>
+                  <option value="Fruits&Vegetables">Fruits&Vegetables</option>
+                  <option value="Haircut">Haircut</option>
+                  <option value="Unexpected">Unexpected</option>
+              </select>
+  
+              <label for="Mode of Payment">Mode of Payment:</label>
+              <select id="Mode of Payment" name="Mode of Payment" required>
+                  <option value="">Select Mode</option>
+                  <option value="Cash">cash</option>
+                  <option value="UPI">UPI</option>
+                  <option value="Net Banking">Net Banking</option>
+                  <option value="Credit Card">Credit Card</option>
+                  <option value="Debit Card">Debit Card</option>
+              </select>
+            <button type="submit" class="submit-btn">Add Expense</button>
+          </form>
+
+          <table id="expense-table">
+            <thead>
+              <tr>
+                <th>Date of Purchase</th>
+                <th>Product</th>
+                <th>Payment Method</th>
+                <th>Price</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+      
+          <table id="daily-expenses-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+
+          <table id="monthly-expenses-table">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+    </div>
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

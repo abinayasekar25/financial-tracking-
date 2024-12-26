@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Planning (DIME Method)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="sidebar">
+        <a href="expense-tracker.html">Expense Tracker</a>
+        <a href="fire-number.html">FIRE Number</a>
+        <a href="investment-planning.html">Investment Planning</a>
+        <a href="car-ownership.html">Car Ownership</a>
+        <a href="tax-saving.html">Tax Savings</a>
+        <a href="insurance-planning.html">Insurance Planning</a>
+        <a href="Cost-Benefit Analysis.html">Cost-Benefit Analysis</a>
+        <a href=" Rate Management for Home Loans.html">Rate Management for Home Loans</a>
+        <a href ="Emergency Goals .html">Emergency Goals</a>
+        <a href ="Home Loan Strategies.html">Home Loan Strategies</a>
+        <a href="dd.html">28/36 Rule Breakdown</a>
+        <a href="Credit Card Management.html">Credit Card Management</a>
+        <a href="Sukanya Samriddhi Yojana.html">Sukanya Samriddhi Yojana</a>
+        
+    </div>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Planning (DIME Method)</title>
+</head>
+<body>
+    <div id="content">
+        <section id="insurance-planning">
+            <h1>Insurance Planning (DIME Method)</h1>
+            <p>Use the DIME method to calculate the insurance coverage you need.</p>
+            <input type="number" id="debt" placeholder="Enter total debts (₹)">
+            <input type="number" id="income" placeholder="Enter annual income (₹)">
+            <input type="number" id="mortgage" placeholder="Enter mortgage amount (₹)">
+            <input type="number" id="education" placeholder="Enter education expenses (₹)">
+            <button onclick="calculateInsurance()">Calculate Coverage</button>
+            <p>Recommended Insurance Coverage: ₹<span id="coverage-result">0</span></p>
+        </section>
+    </div>
+    <script>
+        function calculateInsurance() {
+            // Retrieve user inputs
+            const debtInput = document.getElementById("debt").value;
+            const incomeInput = document.getElementById("income").value;
+            const mortgageInput = document.getElementById("mortgage").value;
+            const educationInput = document.getElementById("education").value;
+
+            // Parse inputs to numbers
+            const debt = parseFloat(debtInput);
+            const income = parseFloat(incomeInput);
+            const mortgage = parseFloat(mortgageInput);
+            const education = parseFloat(educationInput);
+
+            // Validate inputs
+            if (isNaN(debt) || debt < 0 || isNaN(income) || income < 0 ||
+                isNaN(mortgage) || mortgage < 0 || isNaN(education) || education < 0) {
+                alert("Please enter valid positive numbers for all fields.");
+                return;
+            }
+
+            // Calculate insurance coverage using the DIME method
+            // DIME: Debts + Income (10 years) + Mortgage + Education
+            const coverage = debt + (income * 10) + mortgage + education;
+
+            // Display the result
+            document.getElementById("coverage-result").textContent = coverage.toLocaleString('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                minimumFractionDigits: 2,
+            });
+        }
+    </script>
+</body>
+</html>

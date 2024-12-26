@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">gff1
+    <title>28-36 Rule Breakdown </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="sidebar">
+        <a href="expense-tracker.html">Expense Tracker</a>
+        <a href="fire-number.html">FIRE Number</a>
+        <a href="investment-planning.html">Investment Planning</a>
+        <a href="car-ownership.html">Car Ownership</a>
+        <a href="tax-saving.html">Tax Savings</a>
+        <a href="insurance-planning.html">Insurance Planning</a>
+        <a href="Cost-Benefit Analysis.html">Cost-Benefit Analysis</a>
+        <a href=" Rate Management for Home Loans.html">Rate Management for Home Loans</a>
+        <a href ="Emergency Goals .html">Emergency Goals</a>
+        <a href ="Home Loan Strategies.html">Home Loan Strategies</a>
+        <a href="dd.html">28-36 Rule Breakdown</a>
+        <a href="Credit Card Management.html">Credit Card Management</a>
+        <a href="Sukanya Samriddhi Yojana.html">Sukanya Samriddhi Yojana</a>
+        
+    </div>
+    <!DOCTYPE html>1 1oo
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>28/36 Rule Breakdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: row;
+        }
+        .container {
+            max-width: 70%;
+            margin: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-left:300px;
+        }
+        h1 {
+            text-align: center;
+            color: #0073e6;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #005bb5;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+        .results {
+            background: #e8f4ff;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .sidebar {
+            max-width: 30%;
+            margin: 20px;
+            padding: 20px;
+            background: #e8f4ff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h2 {
+            color: #0073e6;
+        }
+        .sidebar p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>28/36 Rule Calculator</h1>
+        <form id="ruleForm">
+            <label for="income">Gross Monthly Income (₹):</label>
+            <input type="number" id="income" placeholder="Enter your gross monthly income" required>
+
+            <button type="button" onclick="calculateRule()">Calculate</button>
+        </form>
+
+        <div id="results" class="results" style="display:none;">
+            <h2>Results</h2>
+            <p id="housingLimit"></p>
+            <p id="debtLimit"></p>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <h2>Breakdown of the 28/36 Rule</h2>
+        <p><strong>28%:</strong> The first part of the rule suggests that no more than 28% of your gross monthly income should be allocated for housing expenses (such as mortgage payments, property taxes, and insurance).</p>
+        <p><strong>36%:</strong> The second part of the rule states that no more than 36% of your gross monthly income should be spent on total debt payments. This includes all debts, not just housing (e.g., car loans, credit card payments, student loans).</p>
+    </div>
+
+    <script>
+        function calculateRule() {
+            const income = parseFloat(document.getElementById('income').value);
+
+            if (income > 0) {
+                const housingLimit = income * 0.28;
+                const debtLimit = income * 0.36;
+
+                document.getElementById('housingLimit').textContent = `Maximum Housing Expense: ₹${housingLimit.toFixed(2)}`;
+                document.getElementById('debtLimit').textContent = `Maximum Total Debt Expense: ₹${debtLimit.toFixed(2)}`;
+                document.getElementById('results').style.display = 'block';
+            } else {
+                alert('Please enter a valid income.');
+            }
+        }
+    </script>
+</body>
+</html>

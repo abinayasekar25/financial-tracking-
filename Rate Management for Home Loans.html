@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Management for Home Loans</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="sidebar">
+        <a href="expense-tracker.html">Expense Tracker</a>
+        <a href="fire-number.html">FIRE Number</a>
+        <a href="investment-planning.html">Investment Planning</a>
+        <a href="car-ownership.html">Car Ownership</a>
+        <a href="tax-saving.html">Tax Savings</a>
+        <a href="insurance-planning.html">Insurance Planning</a>
+        <a href="Cost-Benefit Analysis.html">Cost-Benefit Analysis</a>
+        <a href=" Rate Management for Home Loans.html">Rate Management for Home Loans</a>
+        <a href ="Emergency Goals .html">Emergency Goals</a>
+        <a href ="Home Loan Strategies.html">Home Loan Strategies</a>
+        <a href="dd.html">28/36 Rule Breakdown</a>
+        <a href="Credit Card Management.html">Credit Card Management</a>
+        <a href="Sukanya Samriddhi Yojana.html">Sukanya Samriddhi Yojana</a>
+    </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Loan Interest Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 10%;
+    
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0073e6;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+        .results {
+            background: #e8f4ff;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EMI Investment Strategy</h1>
+        <form id="emiForm">
+            <label for="shortTenureEmi">Short Tenure EMI (Higher EMI):</label>
+            <input type="number" id="shortTenureEmi" placeholder="Enter Short Tenure EMI" required>
+
+            <label for="longTenureEmi">Long Tenure EMI (Lower EMI):</label>
+            <input type="number" id="longTenureEmi" placeholder="Enter Long Tenure EMI" required>
+
+            <label for="loanInterestRate">Home Loan Interest Rate (Annual, %):</label>
+            <input type="number" step="0.01" id="loanInterestRate" placeholder="Enter Loan Interest Rate" required>
+
+            <label for="investmentReturn">Expected Investment Return (Annual, %):</label>
+            <input type="number" step="0.01" id="investmentReturn" placeholder="Enter Investment Return" required>
+
+            <button type="button" onclick="calculateStrategy()">Calculate Strategy</button>
+        </form>
+
+        <div id="results" class="results" style="display:none;">
+            <p id="difference"></p>
+            <p id="investmentAdvice"></p>
+            <p id="prepaymentAdvice"></p>
+        </div>
+    </div>
+
+    <script>
+        function calculateStrategy() {
+            const shortTenureEmi = parseFloat(document.getElementById('shortTenureEmi').value);
+            const longTenureEmi = parseFloat(document.getElementById('longTenureEmi').value);
+            const loanInterestRate = parseFloat(document.getElementById('loanInterestRate').value) / 100;
+            const investmentReturn = parseFloat(document.getElementById('investmentReturn').value) / 100;
+
+            if (shortTenureEmi > 0 && longTenureEmi > 0 && loanInterestRate > 0 && investmentReturn > 0) {
+                const emiDifference = shortTenureEmi - longTenureEmi;
+
+                document.getElementById('difference').textContent = `Investable Surplus (EMI Difference): ₹${emiDifference.toFixed(2)}`;
+
+                if (investmentReturn > loanInterestRate) {
+                    document.getElementById('investmentAdvice').textContent = 
+                        `It is worthwhile to invest the surplus in short-term debt funds as the expected post-tax return (${(investmentReturn * 100).toFixed(2)}%) exceeds the loan interest rate (${(loanInterestRate * 100).toFixed(2)}%).`;
+                } else {
+                    document.getElementById('investmentAdvice').textContent = 
+                        `Investing in short-term debt funds is not advisable as the expected return (${(investmentReturn * 100).toFixed(2)}%) is less than the loan interest rate (${(loanInterestRate * 100).toFixed(2)}%).`;
+                }
+
+                document.getElementById('prepaymentAdvice').textContent = 
+                    `Use the accumulated gains from your investments to make lump-sum prepayments, reducing the overall interest burden and loan tenure.`;
+
+                document.getElementById('results').style.display = 'block';
+            } else {
+                alert('Please enter valid numeric values for all fields.');
+            }
+        }
+    </script>
+</body>
+</html>

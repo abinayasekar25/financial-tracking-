@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Loan Strategies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="sidebar">
+        <a href="expense-tracker.html">Expense Tracker</a>
+        <a href="fire-number.html">FIRE Number</a>
+        <a href="investment-planning.html">Investment Planning</a>
+        <a href="car-ownership.html">Car Ownership</a>
+        <a href="tax-saving.html">Tax Savings</a>
+        <a href="insurance-planning.html">Insurance Planning</a>
+        <a href="Cost-Benefit Analysis.html">Cost-Benefit Analysis</a>
+        <a href=" Rate Management for Home Loans.html">Rate Management for Home Loans</a>
+        <a href ="Emergency Goals .html">Emergency Goals</a>
+        <a href ="Home Loan Strategies.html">Home Loan Strategies</a>
+        <a href="dd.html">28/36 Rule Breakdown</a>
+        <a href="Credit Card Management.html">Credit Card Management</a>
+        <a href="Sukanya Samriddhi Yojana.html">Sukanya Samriddhi Yojana</a>
+        
+     
+    </div><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Loan Strategies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .content {
+            flex: 3;
+            margin-left: 20%;
+        }
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+            background: #e8f4ff;
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #0073e6;
+            
+        }
+        h2 {
+            margin-top: 20px;
+            color: #005bb5;
+
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+        .results {
+            background: #e8f4ff;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .sidebar h2 {
+            color: #0073e6;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Home Loan Strategies</h1>
+            <form id="loanStrategiesForm">
+                <h2>EMI Investment in Mutual Funds</h2>
+                <label for="emiAmount">Monthly EMI Amount (₹):</label>
+                <input type="number" id="emiAmount" placeholder="Enter your monthly EMI amount" required>
+
+                <label for="investmentRate">Expected Annual Return Rate (%):</label>
+                <input type="number" step="0.01" id="investmentRate" placeholder="Enter expected annual return rate" required>
+
+                <label for="loanTenure">Loan Tenure (Years):</label>
+                <input type="number" id="loanTenure" placeholder="Enter loan tenure in years" required>
+
+                <button type="button" onclick="calculateInvestmentGrowth()">Calculate Investment Growth</button>
+            </form>
+
+            <div id="results" class="results" style="display:none;">
+                <h2>Results</h2>
+                <p id="investmentGrowth"></p>
+                <p id="yearsToBuy"></p>
+            </div>
+        </div>
+        <div class="sidebar">
+            <h2>To know </h2>
+            <ul>
+                <li><strong>Co-Borrower Loan:</strong> Double tax benefits under Sections 80C and 24(b).</li>
+                <li><strong>Pre-EMI:</strong> Pay interest-only until possession; claim in installments post-possession.</li>
+                <li><strong>Home Setup Loan:</strong> Additional loans for interiors and appliances.</li>
+                <li><strong>APF Code:</strong> Indicates pre-approved projects for smoother loan processes.</li>
+                <li><strong>Price Evaluation:</strong> Compare per sq. ft. costs and UDS for value assessment.</li>
+                <li><strong>Rent vs. Buy:</strong> Rent until 40 for flexibility; buy later for stability.</li>
+                <li><strong>Interest Discounts:</strong> Co-applicant loans for reduced rates, especially for women.</li>
+                <li><strong>Government Schemes:</strong> PMAY offers subsidies up to ₹2.5 lakh for first-time buyers.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function calculateInvestmentGrowth() {
+            const emiAmount = parseFloat(document.getElementById('emiAmount').value);
+            const investmentRate = parseFloat(document.getElementById('investmentRate').value) / 100;
+            const loanTenure = parseInt(document.getElementById('loanTenure').value);
+
+            if (emiAmount > 0 && investmentRate > 0 && loanTenure > 0) {
+                const n = loanTenure * 12; // Total months
+                const r = investmentRate / 12; // Monthly return rate
+
+                const futureValue = emiAmount * (((1 + r) ** n - 1) / r) * (1 + r);
+                const halfTenure = loanTenure / 2 * 12;
+                const halfFutureValue = emiAmount * (((1 + r) ** halfTenure - 1) / r) * (1 + r);
+
+                document.getElementById('investmentGrowth').textContent = `Future Value of Investment over ${loanTenure} years: ₹${futureValue.toFixed(2)}`;
+                document.getElementById('yearsToBuy').textContent = `Investment could allow house purchase in approximately ${Math.round(loanTenure / 2)} years with sufficient returns.`;
+                document.getElementById('results').style.display = 'block';
+            } else {
+                alert('Please fill in all fields with valid values.');
+            }
+        }
+    </script>
+</body>
+</html>

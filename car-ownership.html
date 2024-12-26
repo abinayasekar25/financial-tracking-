@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Ownership</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="sidebar">
+        <a href="expense-tracker.html">Expense Tracker</a>
+        <a href="fire-number.html">FIRE Number</a>
+        <a href="investment-planning.html">Investment Planning</a>
+        <a href="car-ownership.html">Car Ownership</a>
+        <a href="tax-saving.html">Tax Savings</a>
+        <a href="insurance-planning.html">Insurance Planning</a>
+        <a href="Cost-Benefit Analysis.html">Cost-Benefit Analysis</a>
+        <a href=" Rate Management for Home Loans.html">Rate Management for Home Loans</a>
+        <a href ="Emergency Goals .html">Emergency Goals</a>
+        <a href ="Home Loan Strategies.html">Home Loan Strategies</a>
+        <a href="dd.html">28/36 Rule Breakdown</a>
+        <a href="Credit Card Management.html">Credit Card Management</a>
+        <a href="Sukanya Samriddhi Yojana.html">Sukanya Samriddhi Yojana</a>
+     
+    </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Car Ownership and Financial Planning</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 0;
+                background-color: #f9f9f9;
+                color: #333;
+               
+            }
+    
+            .container {
+                max-width: 800px;
+                margin: 20px auto;
+                padding: 10px;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                margin-right: auto;
+            }
+    
+            h1, h2 {
+                color: #444;
+            }
+    
+            label {
+                display: block;
+                margin: 10px 0 5px;
+            }
+    
+            input {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+    
+            button {
+                background: #5cb85c;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+    
+            button:hover {
+                background: #4cae4c;
+            }
+    
+            #results {
+                margin-top: 20px;
+                margin: right 40px;
+                
+            }
+    
+            p {
+                margin: 10px 0;
+                margin-right: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Car Ownership & Financial Planning</h1>
+    
+            <section id="car-ownership">
+                <h2>Car Loan & EMI Planning</h2>
+                <label for="car-price">Car Price (₹):</label>
+                <input type="number" id="car-price" value="1000000" min="0">
+    
+                <label for="monthly-income">Monthly Income (₹):</label>
+                <input type="number" id="monthly-income" value="50000" min="0">
+    
+                <label for="down-payment">Down Payment (₹):</label>
+                <input type="number" id="down-payment" value="200000" min="0">
+    
+                <label for="loan-tenure">Loan Tenure (Years):</label>
+                <input type="number" id="loan-tenure" value="4" min="0">
+    
+                <button onclick="calculateCarLoan()">Calculate EMI & Recommendations</button>
+    
+                <div id="loan-results">
+                    <p id="monthly-emi"></p>
+                    <p id="emi-warning"></p>
+                    <p id="insurance-recommendations"></p>
+                </div>
+            </section>
+    
+            <section id="cost-comparison">
+                <h2>Car Ownership vs. Uber</h2>
+                <label for="car-maintenance">Annual Maintenance Cost (₹):</label>
+                <input type="number" id="car-maintenance" value="50000" min="0">
+    
+                <label for="uber-monthly">Monthly Uber Expense (₹):</label>
+                <input type="number" id="uber-monthly" value="6000" min="0">
+    
+                <label for="annual-kilometer">Annual Kilometers Driven:</label>
+                <input type="number" id="annual-kilometer" value="10000" min="0">
+    
+                <label for="investment-return">Expected Investment Return Rate (%):</label>
+                <input type="number" id="investment-return" value="12" step="0.1" min="0">
+    
+                <button onclick="compareCarVsUber()">Compare Costs</button>
+    
+                <div id="comparison-results">
+                    <p id="ownership-cost"></p>
+                    <p id="uber-cost"></p>
+                    <p id="recommendation"></p>
+                    <p id="profit-amount"></p>
+                </div>
+            </section>
+        </div>
+    
+        <script>
+            function calculateCarLoan() {
+                const carPrice = parseFloat(document.getElementById('car-price').value);
+                const monthlyIncome = parseFloat(document.getElementById('monthly-income').value);
+                const downPayment = parseFloat(document.getElementById('down-payment').value);
+                const loanTenure = parseInt(document.getElementById('loan-tenure').value);
+    
+                const loanAmount = carPrice - downPayment;
+                const monthlyInterestRate = 0.08 / 12;
+                const numberOfPayments = loanTenure * 12;
+    
+                const emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
+                            (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+    
+                document.getElementById('monthly-emi').innerText = `Monthly EMI: ₹${emi.toFixed(2)}`;
+    
+                const emiWarning = emi > monthlyIncome * 0.1 
+                    ? `Warning: EMI exceeds 10% of your monthly income! Consider a cheaper car or higher down payment.`
+                    : `EMI is within a safe range of your monthly income.`;
+    
+                const tenureWarning = loanTenure > 5
+                    ? `Warning: Loan tenure exceeds 5 years. This cost is above our budget, choose another car.`
+                    : '';
+    
+                document.getElementById('emi-warning').innerText = `${emiWarning} ${tenureWarning}`;
+    
+                document.getElementById('insurance-recommendations').innerText = `Insurance Recommendation: Choose comprehensive protection with Third-Party Liability and Own Damage Cover. For EV buyers, consider Section 80EEB tax benefits.`;
+            }
+    
+            function compareCarVsUber() {
+                const carPrice = parseFloat(document.getElementById('car-price').value);
+                const carMaintenance = parseFloat(document.getElementById('car-maintenance').value);
+                const uberMonthly = parseFloat(document.getElementById('uber-monthly').value);
+                const annualKilometer = parseFloat(document.getElementById('annual-kilometer').value);
+                const investmentReturn = parseFloat(document.getElementById('investment-return').value) / 100;
+    
+                const downPayment = carPrice * 0.2;
+                const carOwnershipCost = downPayment + (carMaintenance * 7);
+    
+                const uberCost = uberMonthly * 12 * 7;
+    
+                const investedAmount = downPayment * Math.pow(1 + investmentReturn, 7);
+    
+                const kilometerAnalysis = annualKilometer > 12000
+                    ? `Driving more than 12,000 kilometers annually indicates frequent usage; car ownership might be more cost-effective.`
+                    : `Driving less than 12,000 kilometers annually indicates infrequent usage; consider using Uber.`;
+    
+                const recommendation = carOwnershipCost > uberCost
+                    ? `Using Uber is more cost-effective.`
+                    : `Owning a car is more economical for your needs.`;
+    
+                const profitAmount = carOwnershipCost > uberCost
+                    ? `Profit by choosing Uber: ₹${(carOwnershipCost - uberCost).toFixed(2)}`
+                    : `Profit by choosing Car Ownership: ₹${(uberCost - carOwnershipCost).toFixed(2)}`;
+    
+                document.getElementById('ownership-cost').innerText = `Total Car Ownership Cost over 7 years: ₹${carOwnershipCost.toFixed(2)}`;
+                document.getElementById('uber-cost').innerText = `Total Uber Cost over 7 years: ₹${uberCost.toFixed(2)}`;
+                document.getElementById('recommendation').innerText = `${kilometerAnalysis} ${recommendation}`;
+                document.getElementById('profit-amount').innerText = profitAmount;
+            }
+        </script>
+    </body>
+    </html>
+    
